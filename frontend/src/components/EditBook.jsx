@@ -39,8 +39,8 @@ const EditBook = () => {
 
 
   return (
-    <div className="columns mt-5 is-centered">
-      <div className="column is-half">
+    <div className="columns">
+      <div className="column">
         <form onSubmit={updateBook}>
           <div className="field">
             <label className="label">Title</label>

@@ -25,6 +25,7 @@ const BookList = () => {
 
   return (
     <div className='column'>
+        <h1>Book List</h1>
         <div className='column'>
             <table>
                 <thead>
@@ -53,6 +54,9 @@ const BookList = () => {
                         ))}
                 </tbody>
             </table>
+                <Link to={`/add`} className='button'><button >Add Book</button></Link>
+                {' '}
+                <Link to={`/`} className='button'><button >Logout</button></Link>
         </div>
     </div>
     )
