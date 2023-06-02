@@ -1,5 +1,8 @@
 import User from "../models/LoginModel.js";
+import Book from "../models/UserModel.js";
+import bcrypt from "bcrypt";
 
+//User Table
 export const getUser = async(req, res) => {
     try {
         const users = await User.findAll({
@@ -62,6 +65,16 @@ export const deleteUser = async(req, res) => {
             }
         });
         res.status(200).json({msg: 'User Deleted'});
+    } catch (error) {
+        console.log(error.message);
+    }
+}
+
+//Book Table
+export const getBooks = async(req, res) => {
+    try {
+        const response = await Book.findAll();
+        res.status(200).json(response);
     } catch (error) {
         console.log(error.message);
     }
