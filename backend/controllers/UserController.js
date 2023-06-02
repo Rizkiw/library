@@ -127,3 +127,18 @@ export const deleteBook = async(req, res) => {
         console.log(error.message);
     }
 }
+
+export const Login = async(req, res) => {
+    try {
+        const user = await User.findAll({
+            where:{
+                email: req.body.email
+            }
+        });
+        const match = await bcrypt.compare(req.body.password, user[0].password);
+        if(!match) return res.status(400).json({msg: "Wrong Password"})
+        res.status(200).json(user);
+    } catch (error) {
+        res.status(404).json({msg:"Email tidak ditemukan"});
+    }
+}
