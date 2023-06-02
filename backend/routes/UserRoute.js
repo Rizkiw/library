@@ -6,6 +6,7 @@ import {
     getUser,
     getUserById,
     regisUser,
+    updateBook,
     updateUser
   } from "../controllers/UserController.js";
 
@@ -19,6 +20,7 @@ router.delete('/users/:id', deleteUser);
 router.get('/books', getBooks);
 router.get('/books/:id', getUserById);
 router.post('/books', createBook);
+router.patch('/books/:id', updateBook);
 
 
 

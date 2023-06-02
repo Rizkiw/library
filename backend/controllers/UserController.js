@@ -101,3 +101,16 @@ export const createBook = async(req, res) => {
         console.log(error.message);
     }
 }
+
+export const updateBook = async(req, res) => {
+    try {
+        await Book.update(req.body,{
+            where:{
+                id:req.params.id
+            }
+        });
+        res.status(200).json({msg: 'Book Updated'});
+    } catch (error) {
+        console.log(error.message);
+    }
+}
