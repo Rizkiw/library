@@ -1,14 +1,17 @@
 import express from "express";
 import { 
     Login,
+    borrowBook,
     createBook,
     deleteBook,
     deleteUser,
     getBookById,
     getBooks,
+    getBorrow,
     getUser,
     getUserById,
     regisUser,
+    returnBook,
     updateBook,
     updateUser
   } from "../controllers/UserController.js";
@@ -26,6 +29,9 @@ router.post('/books', createBook);
 router.patch('/books/:id', updateBook);
 router.delete('/books/:id', deleteBook);
 router.post('/login', Login);
+router.get('/borrow', getBorrow);
+router.post('/borrow', borrowBook);
+router.patch('/return', returnBook);
 
 
 export default router;

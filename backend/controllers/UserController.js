@@ -1,6 +1,42 @@
 import User from "../models/LoginModel.js";
 import Book from "../models/UserModel.js";
+import Borrow from "../models/BorrowModel.js";
 import bcrypt from "bcrypt";
+
+
+export const getBorrow = async(req, res) => {
+    try {
+        const response = await Borrow.findAll();
+        res.status(200).json(response);
+    } catch (error) {
+        console.log(error.message);
+    }
+}
+
+export const borrowBook = async(req, res) => {
+    try {
+        await Borrow.create(req.body);
+        res.status(201).json({msg: 'Book Borrowed'});
+    } catch (error) {
+        console.log(error.message);
+    }
+}
+
+export const returnBook = async(req, res) => {
+    const { name, title, status, isBorrow } = req.body;
+    if(status === isBorrow) return res.status(400).json({msg: "Out of Stock"});
+    try {
+        await Borrow.create({
+            name: name,
+            title: title,
+            status: status
+        });
+        res.status(201).json({msg: 'Book Returned'});
+    } catch (error) {
+        console.log(error.message);
+    }
+}
+
 
 //User Table
 export const getUser = async(req, res) => {
@@ -29,7 +65,7 @@ export const getUserById = async(req, res) => {
 
 export const regisUser = async(req, res) => {
     const { name, email, password, confPassword } = req.body;
-    if(password !== confPassword) return res.status(400).json({msg: "Password dan Confirm Password tidak cocok"});
+    if(password !== confPassword) return res.status(400).json({msg: "Password and Confirm Password not match"});
     const salt = await bcrypt.genSalt();
     const hashPassword = await bcrypt.hash(password, salt);
     try {
