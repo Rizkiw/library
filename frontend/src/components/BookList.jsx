@@ -4,16 +4,16 @@ import { Link } from 'react-router-dom';
 
 const BookList = () => {
     const [books, setBook] = useState([]);
-    
+
     useEffect(() => {
         getBooks();
     }, []);
-    
+
     const getBooks = async () =>{
         const response = await axios.get('http://localhost:5000/books');
         setBook(response.data);
     };
-    
+
     const deleteBook = async (id) => {
         try {
             await axios.delete(`http://localhost:5000/books/${id}`);
@@ -22,9 +22,10 @@ const BookList = () => {
             console.log(error);
         }
     };
+
   return (
-    <div>
-        <div>
+    <div className='column'>
+        <div className='column'>
             <table>
                 <thead>
                     <tr>
@@ -43,18 +44,18 @@ const BookList = () => {
                                 <td>{book.genre}</td>
                                 <td>{book.author}</td>
                                 <td>{book.year}</td>
-                                <td>
+                                {/* <td>
                                     <Link to={`/edit/${book.id}`} className='button'><button >Edit</button></Link>
                                     {' '}
                                     <button onClick={()=> deleteBook(book.id)} className='button'>Delete</button>
-                                </td>
+                                </td> */}
                             </tr>
                         ))}
                 </tbody>
             </table>
         </div>
     </div>
-  )
+    )
 }
 
 export default BookList
