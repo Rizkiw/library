@@ -114,3 +114,16 @@ export const updateBook = async(req, res) => {
         console.log(error.message);
     }
 }
+
+export const deleteBook = async(req, res) => {
+    try {
+        await Book.destroy({
+            where:{
+                id:req.params.id
+            }
+        });
+        res.status(200).json({msg: 'Book Deleted'});
+    } catch (error) {
+        console.log(error.message);
+    }
+}

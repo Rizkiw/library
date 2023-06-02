@@ -1,6 +1,7 @@
 import express from "express";
 import { 
     createBook,
+    deleteBook,
     deleteUser,
     getBooks,
     getUser,
@@ -21,6 +22,8 @@ router.get('/books', getBooks);
 router.get('/books/:id', getUserById);
 router.post('/books', createBook);
 router.patch('/books/:id', updateBook);
+router.delete('/books/:id', deleteBook);
+
 
 
 
