@@ -44,11 +44,11 @@ const BookList = () => {
                                 <td>{book.genre}</td>
                                 <td>{book.author}</td>
                                 <td>{book.year}</td>
-                                {/* <td>
+                                <td>
                                     <Link to={`/edit/${book.id}`} className='button'><button >Edit</button></Link>
                                     {' '}
                                     <button onClick={()=> deleteBook(book.id)} className='button'>Delete</button>
-                                </td> */}
+                                </td>
                             </tr>
                         ))}
                 </tbody>
