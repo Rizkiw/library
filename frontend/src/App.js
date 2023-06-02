@@ -3,6 +3,7 @@ import BookList from "./components/BookList";
 import Login from "./components/Login";
 import EditBook from "./components/EditBook";
 import AddBook from "./components/AddBook";
+import UserList from "./components/UserList";
 
 function App() {
   return (
@@ -12,6 +13,7 @@ function App() {
         <Route path="/home" element={<BookList/>}/>
         <Route path="/edit/:id" element={<EditBook/>}/>
         <Route path="/add" element={<AddBook/>}/>
+        <Route path="/user" element={<UserList/>}/>
       </Routes>
     </BrowserRouter>
   );
