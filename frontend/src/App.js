@@ -1,8 +1,15 @@
+import {BrowserRouter, Routes, Route} from "react-router-dom";
 import BookList from "./components/BookList";
+import Login from "./components/Login";
 
 function App() {
   return (
-    <div><BookList /></div>
+    <BrowserRouter>
+      <Routes>
+        <Route path="/" element={<Login/>}/>
+        <Route path="/home" element={<BookList/>}/>
+      </Routes>
+    </BrowserRouter>
   );
 }
 
