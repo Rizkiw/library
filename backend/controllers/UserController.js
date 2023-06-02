@@ -92,3 +92,12 @@ export const getBookById = async(req, res) => {
         console.log(error.message);
     }
 }
+
+export const createBook = async(req, res) => {
+    try {
+        await Book.create(req.body);
+        res.status(201).json({msg: 'Book Added'});
+    } catch (error) {
+        console.log(error.message);
+    }
+}
