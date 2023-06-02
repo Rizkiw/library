@@ -16,6 +16,7 @@ router.post('/users', regisUser);
 router.patch('/users/:id', updateUser);
 router.delete('/users/:id', deleteUser);
 router.get('/books', getBooks);
+router.get('/books/:id', getBookById);
 
 
 
