@@ -26,13 +26,14 @@ const UserList = () => {
   return (
     <div className='column'>
         <h1>User List</h1>
+        <Link to={`/home`} className='button'><button >Home</button></Link>
         <div className='column'>
             <table>
                 <thead>
                     <tr>
                         <th>No</th>
-                        <th>Title</th>
-                        <th>Genre</th>
+                        <th>Nama</th>
+                        <th>Email</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -42,7 +43,7 @@ const UserList = () => {
                                 <td>{user.name}</td>
                                 <td>{user.email}</td>
                                 <td>
-                                    <Link to={`/users/${user.id}`} className='button'><button >Edit</button></Link>
+                                    <Link to={`/editUser/${user.id}`} className='button'><button >Edit</button></Link>
                                     {' '}
                                     <button onClick={()=> deleteBook(user.id)} className='button'>Delete</button>
                                 </td>
