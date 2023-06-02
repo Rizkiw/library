@@ -4,6 +4,7 @@ import {
     createBook,
     deleteBook,
     deleteUser,
+    getBookById,
     getBooks,
     getUser,
     getUserById,
@@ -20,7 +21,7 @@ router.post('/users', regisUser);
 router.patch('/users/:id', updateUser);
 router.delete('/users/:id', deleteUser);
 router.get('/books', getBooks);
-router.get('/books/:id', getUserById);
+router.get('/books/:id', getBookById);
 router.post('/books', createBook);
 router.patch('/books/:id', updateBook);
 router.delete('/books/:id', deleteBook);
