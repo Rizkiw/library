@@ -1,10 +1,15 @@
 import './App.css';
+import {BrowserRouter, Routes, Route } from "react-router-dom";
+import BookList from '../components/BookList';
+
 
 function App() {
   return (
-    <div>
-      <h1>Hello World</h1>
-    </div>
+    <BrowserRouter>
+      <Routes>
+        <Route path="/home" element={<BookList />}/>  
+      </Routes>
+    </BrowserRouter>
   );
 }
 
