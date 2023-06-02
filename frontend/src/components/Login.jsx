@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
 const Login = () => {
     const [email, setEmail] = useState('');
@@ -44,6 +45,8 @@ const Login = () => {
                                 </div>
                                 <div className="field">
                                     <button className="button">Login</button>
+                                    {' '}
+                                    <Link to={`/register`} className='button'><button >Register</button></Link>
                                 </div>
                             </form>
                         </div>

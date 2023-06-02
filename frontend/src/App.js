@@ -5,6 +5,7 @@ import EditBook from "./components/EditBook";
 import AddBook from "./components/AddBook";
 import UserList from "./components/UserList";
 import EditUser from "./components/EditUser";
+import RegisUser from "./components/RegisUser";
 
 function App() {
   return (
@@ -16,6 +17,7 @@ function App() {
         <Route path="/add" element={<AddBook/>}/>
         <Route path="/user" element={<UserList/>}/>
         <Route path="/editUser/:id" element={<EditUser/>}/>
+        <Route path="/register" element={<RegisUser/>}/>
       </Routes>
     </BrowserRouter>
   );
