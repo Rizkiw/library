@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom';
 
 const BookList = () => {
     const [books, setBook] = useState([]);
+    const [search, setSearch] = useState('');
 
     useEffect(() => {
         getBooks();
@@ -26,6 +27,15 @@ const BookList = () => {
   return (
     <div className='column'>
         <h1>Book List</h1>
+        <Link to={`/user`} className='button'><button >Manage User</button></Link>
+        <div className="control">
+              <input
+                type="text"
+                className="input"
+                onChange={(e) => setSearch(e.target.value)}
+                placeholder="Search..."
+              />
+            </div>
         <div className='column'>
             <table>
                 <thead>
@@ -38,7 +48,19 @@ const BookList = () => {
                     </tr>
                 </thead>
                 <tbody>
-                        {books.map((book, index) => (
+                        {books.filter((val) => {
+                            if (search === '') {
+                                return val
+                            } else if (val.title.toLowerCase().includes(search.toLowerCase())) {
+                                return val
+                            } else if (val.genre.toLowerCase().includes(search.toLowerCase())) {
+                                return val
+                            } else if (val.author.toLowerCase().includes(search.toLowerCase())) {
+                                return val
+                            } else if (val.year.toLowerCase().includes(search.toLowerCase())) {
+                                return val
+                            }
+                        }).map((book, index) => (
                             <tr key={book.id}>
                                 <td>{index + 1}</td>
                                 <td>{book.title}</td>
