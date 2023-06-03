@@ -7,6 +7,7 @@ import AddBook from "./components/AddBook";
 import UserList from "./components/UserList";
 import EditUser from "./components/EditUser";
 import RegisUser from "./components/RegisUser";
+import BorrowBook from './components/BorrowBook';
 
 function App() {
   return (
@@ -19,6 +20,7 @@ function App() {
         <Route path="/user" element={<UserList/>}/>
         <Route path="/editUser/:id" element={<EditUser/>}/>
         <Route path="/register" element={<RegisUser/>}/>
+        <Route path="/borrow/:id" element={<BorrowBook/>}/>
       </Routes>
     </BrowserRouter>
   );

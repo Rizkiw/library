@@ -36,7 +36,6 @@ const BookList = () => {
         <Card style={{ width: '50vw' }}>
         <Card.Body>
         <Card.Title><h1>Book List</h1></Card.Title>
-        
         <Row className="mb-3">
         <Col xs={7}>
               <Form.Control
@@ -88,6 +87,8 @@ const BookList = () => {
                                     <Link to={`/edit/${book.id}`} className='button'><button class="btn btn-outline-info" >Edit</button></Link>
                                     {' '}
                                     <button onClick={()=> deleteBook(book.id)} className='button btn btn-outline-danger'>Delete</button>
+                                    {' '}
+                                    <Link to={`/borrow`} className='button'><button class="btn btn-outline-info" >Borrow</button></Link>
                                 </td>
                             </tr>
                         ))}

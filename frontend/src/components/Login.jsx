@@ -26,27 +26,29 @@ const Login = () => {
 
   return (
     <div className="hero-body">
-                <div className="container">
-                    <div className="columns">
-                        <div className="column">
+                <div className="container-sm ">
+                    <div class="position-absolute top-50 start-50 translate-middle shadow p-3 mb-5 bg-body rounded card " style={{ width: '25vw' }}>
+                        <div className="card-body">
                             <form onSubmit={Auth} className="box">
+                                <div className="field">
+                                    <label className="label mb-3 nav justify-content-center"><h1 class="card-title ">Login</h1></label>
+                                    <div className="form-floating mb-3">
+                                        <input type="text" id="floatingInput"
+                                        className="form-control" placeholder="Username" value={email} onChange={(e) => setEmail(e.target.value)} />
+                                        <label for="floatingInput">Email address</label>
+                                    </div>
+                                </div>
+                                <div className="form-floating">
+                                        <input type="password" id="floatingPassword"
+                                        className="form-control" placeholder="Password" value={password} onChange={(e) => setPassword(e.target.value)} />
+                                        <label for="floatingPassword">Password</label>
+                                </div>
                                 <p className="has-text-centered">{msg}</p>
-                                <div className="field">
-                                    <label className="label">Email or Username</label>
-                                    <div className="controls">
-                                        <input type="text" className="input" placeholder="Username" value={email} onChange={(e) => setEmail(e.target.value)} />
-                                    </div>
+                                <div className="nav justify-content-center mb-3">
+                                    <Link to={`/register`} className='button'><button class="btn btn-outline-primary">Register</button></Link>
                                 </div>
-                                <div className="field">
-                                    <label className="label">Password</label>
-                                    <div className="controls">
-                                        <input type="password" className="input" placeholder="******" value={password} onChange={(e) => setPassword(e.target.value)} />
-                                    </div>
-                                </div>
-                                <div className="field">
-                                    <button className="button">Login</button>
-                                    {' '}
-                                    <Link to={`/register`} className='button'><button >Register</button></Link>
+                                <div className="nav justify-content-center">
+                                    <button className="button" class="btn btn-outline-primary">Login</button>
                                 </div>
                             </form>
                         </div>
