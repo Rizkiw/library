@@ -128,7 +128,13 @@ const BorrowBook = () => {
                     </tr>
                 </thead>
                 <tbody>
-                        {borrows.map((book, index) => (
+                        {borrows.filter((val) => {
+                            if (title === '') {
+                              return val
+                          } else if (val.title.toLowerCase().includes(title.toLowerCase())) {
+                              return val
+                          }
+                        }).map((book, index) => (
                             <tr key={book.id}>
                                 <td>{index + 1}</td>
                                 <td>{book.title}</td>
