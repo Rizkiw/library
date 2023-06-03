@@ -27,59 +27,60 @@ const RegisUser = () => {
 
   return (
     <div className="columns">
-      <div className="column">
+      <div className="position-absolute top-50 start-50 translate-middle shadow p-3 mb-5 bg-body rounded card " style={{ width: '25vw' }}>
         <form onSubmit={saveUser}>
-            <p>{msg}</p>
+            <label className="label mb-3 nav justify-content-center"><h1 class="card-title ">Register</h1></label>
           <div className="field">
-            <label className="label">Name</label>
-            <div className="control">
+            <div className="form-floating mb-3">
               <input
-                type="text"
-                className="input"
+                type="text" id="floating"
+                className="form-control"
                 value={name}
                 onChange={(e) => setName(e.target.value)}
                 placeholder="Name"
               />
+              <label for="floating">Name</label>
             </div>
           </div>
           <div className="field">
-            <label className="label">Email</label>
-            <div className="control">
+            <div className="form-floating mb-3">
               <input
-                type="text"
-                className="input"
+                type="text"id="floating"
+                className="form-control"
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
                 placeholder="Email"
               />
+              <label for="floating">Email</label>
             </div>
           </div>
           <div className="field">
-            <label className="label">Password</label>
-            <div className="control">
+            <div className="form-floating mb-3">
               <input
-                type="password"
-                className="input"
+                type="password" id="floating"
+                className="form-control"
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}
                 placeholder="Password"
               />
+             <label for="floating">Password</label>
             </div>
           </div>
           <div className="field">
-            <label className="label">Confirm Password</label>
-            <div className="control">
+            <div className="form-floating mb-3">
               <input
-                type="password"
-                className="input"
+                type="password" id="floating"
+                className="form-control"
                 value={confPassword}
                 onChange={(e) => setConfPassword(e.target.value)}
                 placeholder="Confirm Password"
               />
+              <label for="floating">Confirm Password</label>
             </div>
           </div>
-          <div className="field">
-            <button type="submit" className="button is-success">
+          <p>{msg}</p>
+          <div className="nav justify-content-center">
+            <button type="submit" className="button is-success btn btn-outline-success">
               Register
             </button>
           </div>

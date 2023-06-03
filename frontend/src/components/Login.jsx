@@ -34,7 +34,7 @@ const Login = () => {
                                     <label className="label mb-3 nav justify-content-center"><h1 class="card-title ">Login</h1></label>
                                     <div className="form-floating mb-3">
                                         <input type="text" id="floatingInput"
-                                        className="form-control" placeholder="Username" value={email} onChange={(e) => setEmail(e.target.value)} />
+                                        className="form-control" placeholder="Email" value={email} onChange={(e) => setEmail(e.target.value)} />
                                         <label for="floatingInput">Email address</label>
                                     </div>
                                 </div>
@@ -45,10 +45,10 @@ const Login = () => {
                                 </div>
                                 <p className="has-text-centered">{msg}</p>
                                 <div className="nav justify-content-center mb-3">
-                                    <Link to={`/register`} className='button'><button class="btn btn-outline-primary">Register</button></Link>
+                                    <button className="button" class="btn btn-outline-primary">Login</button>
                                 </div>
                                 <div className="nav justify-content-center">
-                                    <button className="button" class="btn btn-outline-primary">Login</button>
+                                    <Link to={`/register`} className='button'><button class="btn btn-outline-primary">Register</button></Link>
                                 </div>
                             </form>
                         </div>
