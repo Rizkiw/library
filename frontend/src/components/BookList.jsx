@@ -77,7 +77,7 @@ const BookList = () => {
                                 return val
                             } else if (val.author.toLowerCase().includes(search.toLowerCase())) {
                                 return val
-                            } else if (val.year.toLowerCase().includes(search.toLowerCase())) {
+                            } else if (val.year.includes(search)) {
                                 return val
                             }
                         }).map((book, index) => (
@@ -92,15 +92,13 @@ const BookList = () => {
                                     {' '}
                                     <button onClick={()=> deleteBook(book.id)} className='button btn btn-outline-danger'>Delete</button>
                                     {' '}
-                                    <Link to={`/borrow/${book.id}`} className='button'><button class="btn btn-outline-info" >Borrow</button></Link>
+                                    <Link to={`/borrow/${book.id}`} className='button'><button class="btn btn-outline-info" >Borrow / Return</button></Link>
                                 </td>
                             </tr>
                         ))}
                 </tbody>
             </Table>
                 <Link to={`/add`} className='button'><button class="btn btn-outline-primary">Add Book</button></Link>
-                {' '}
-                <Link to={`/borrow`} className='button'><button class="btn btn-outline-info">Borrow</button></Link>
         </div>
         </Card.Body>
         </Card>

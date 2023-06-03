@@ -61,7 +61,7 @@ const AddBook = () => {
           </div>
           <div className="form-floating mb-3">
               <input
-                type="text" id="floating"
+                type="number" id="floating"
                 className="form-control"
                 value={year}
                 onChange={(e) => setYear(e.target.value)}
