@@ -92,7 +92,7 @@ const BookList = () => {
                                     {' '}
                                     <button onClick={()=> deleteBook(book.id)} className='button btn btn-outline-danger'>Delete</button>
                                     {' '}
-                                    {/* <Link to={`/borrow/${book.id}`} className='button'><button class="btn btn-outline-info" >Borrow</button></Link> */}
+                                    <Link to={`/borrow/${book.id}`} className='button'><button class="btn btn-outline-info" >Borrow</button></Link>
                                 </td>
                             </tr>
                         ))}
