@@ -80,7 +80,7 @@ const RegisUser = () => {
           </div>
           <p>{msg}</p>
           <div className="nav justify-content-center">
-            <button type="submit" className="button is-success btn btn-outline-success">
+            <button type="submit" className="button btn btn-outline-success">
               Register
             </button>
           </div>

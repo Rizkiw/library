@@ -25,59 +25,52 @@ const AddBook = () => {
     };
 
   return (
-    <div className="columns">
-      <div className="column">
+    <div className="col">
+      <div className='position-absolute top-50 start-50 translate-middle shadow p-3 mb-5 bg-body rounded card' style={{ width: '25vw' }}>
         <form onSubmit={saveBook}>
-          <div className="field">
-            <label className="label">Title</label>
-            <div className="control">
+        <label className="label mb-3 nav justify-content-center"><h1 class="card-title ">Add Book</h1></label>
+          <div className="form-floating mb-3">
               <input
-                type="text"
-                className="input"
+                type="text" id="floating"
+                className="form-control"
                 value={title}
                 onChange={(e) => setTitle(e.target.value)}
                 placeholder="Title"
               />
-            </div>
+              <label className="label " for="floating">Title</label>
           </div>
-          <div className="field">
-            <label className="label">Genre</label>
-            <div className="control">
+          <div className="form-floating mb-3">
               <input
-                type="text"
-                className="input"
+                type="text" id="floating"
+                className="form-control"
                 value={genre}
                 onChange={(e) => setGenre(e.target.value)}
                 placeholder="Genre"
               />
-            </div>
+              <label className="label" for="floating">Genre</label>
           </div>
-          <div className="field">
-            <label className="label">Author</label>
-            <div className="control">
+          <div className="form-floating mb-3">
               <input
-                type="text"
-                className="input"
+                type="text" id="floating"
+                className="form-control"
                 value={author}
                 onChange={(e) => setAuthor(e.target.value)}
                 placeholder="Author"
               />
-            </div>
+              <label className="label" for="floating">Author</label>
           </div>
-          <div className="field">
-            <label className="label">Year</label>
-            <div className="control">
+          <div className="form-floating mb-3">
               <input
-                type="text"
-                className="input"
+                type="text" id="floating"
+                className="form-control"
                 value={year}
                 onChange={(e) => setYear(e.target.value)}
                 placeholder="Year"
               />
-            </div>
+              <label className="label" for="floating">Year</label>
           </div>
           <div className="field">
-            <button type="submit" className="button is-success">
+            <button type="submit" className="button btn btn-outline-success">
               Add Book
             </button>
           </div>
