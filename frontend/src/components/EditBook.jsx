@@ -39,59 +39,60 @@ const EditBook = () => {
 
 
   return (
-    <div className="columns">
-      <div className="column">
+    <div className="col">
+      <div className='position-absolute top-50 start-50 translate-middle shadow p-3 mb-5 bg-body rounded card' style={{ width: '25vw' }}>
         <form onSubmit={updateBook}>
-          <div className="field">
+        <label className="label mb-3 nav justify-content-center"><h1 class="card-title ">Edit Book</h1></label>
+          <div className="field mb-3">
             <label className="label">Title</label>
             <div className="control">
               <input
                 type="text"
-                className="input"
+                className="form-control"
                 value={title}
                 onChange={(e) => setTitle(e.target.value)}
                 placeholder="Title"
               />
             </div>
           </div>
-          <div className="field">
+          <div className="field mb-3">
             <label className="label">Genre</label>
             <div className="control">
               <input
                 type="text"
-                className="input"
+                className="form-control"
                 value={genre}
                 onChange={(e) => setGenre(e.target.value)}
                 placeholder="Genre"
               />
             </div>
           </div>
-          <div className="field">
+          <div className="field mb-3">
             <label className="label">Author</label>
             <div className="control">
               <input
                 type="text"
-                className="input"
+                className="form-control"
                 value={author}
                 onChange={(e) => setAuthor(e.target.value)}
                 placeholder="Author"
               />
             </div>
           </div>
-          <div className="field">
+          <div className="field mb-3">
             <label className="label">Year</label>
             <div className="control">
               <input
                 type="text"
-                className="input"
+                className="form-control"
                 value={year}
                 onChange={(e) => setYear(e.target.value)}
                 placeholder="Year"
               />
             </div>
           </div>
-          <div className="field">
-            <button type="submit" className="button is-success">
+          <div className="field mb-3">
+            <button type="submit" className="button btn btn-outline-success">
               Update Book
             </button>
           </div>
