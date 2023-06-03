@@ -47,7 +47,11 @@ const BookList = () => {
         </Col>
         <Col>
         <div class='d-flex justify-content-between'>
+        <div>
         <Link to={`/user`} className='button'><button class="btn btn-outline-primary">Manage User</button></Link>
+        {' '}
+        <Link to={`/`} className='button'><button class="btn btn-outline-danger">Logout</button></Link>
+        </div>
         </div>
         </Col>
         </Row>
@@ -88,7 +92,7 @@ const BookList = () => {
                                     {' '}
                                     <button onClick={()=> deleteBook(book.id)} className='button btn btn-outline-danger'>Delete</button>
                                     {' '}
-                                    <Link to={`/borrow`} className='button'><button class="btn btn-outline-info" >Borrow</button></Link>
+                                    {/* <Link to={`/borrow/${book.id}`} className='button'><button class="btn btn-outline-info" >Borrow</button></Link> */}
                                 </td>
                             </tr>
                         ))}
@@ -96,7 +100,7 @@ const BookList = () => {
             </Table>
                 <Link to={`/add`} className='button'><button class="btn btn-outline-primary">Add Book</button></Link>
                 {' '}
-                <Link to={`/`} className='button'><button class="btn btn-outline-danger">Logout</button></Link>
+                <Link to={`/borrow`} className='button'><button class="btn btn-outline-info">Borrow</button></Link>
         </div>
         </Card.Body>
         </Card>

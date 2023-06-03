@@ -21,6 +21,7 @@ function App() {
         <Route path="/editUser/:id" element={<EditUser/>}/>
         <Route path="/register" element={<RegisUser/>}/>
         <Route path="/borrow/:id" element={<BorrowBook/>}/>
+        <Route path="/borrow" element={<BorrowBook/>}/>
       </Routes>
     </BrowserRouter>
   );
