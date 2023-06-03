@@ -33,27 +33,28 @@ const EditUser = () => {
 
 
   return (
-    <div className="columns">
-      <div className="column">
+    <div className="col">
+      <div className='position-absolute top-50 start-50 translate-middle shadow p-3 mb-5 bg-body rounded'>
         <form onSubmit={updateUser}>
-          <div className="field">
+        <label className="label mb-3 nav justify-content-center"><h1 class="card-title ">Edit</h1></label>
+          <div className="field mb-3">
             <label className="label">Name</label>
             <div className="control">
               <input
                 type="text"
-                className="input"
+                className="form-control"
                 value={name}
                 onChange={(e) => setName(e.target.value)}
                 placeholder="Name"
               />
             </div>
           </div>
-          <div className="field">
+          <div className="field mb-3">
             <label className="label">Email</label>
             <div className="control">
               <input
                 type="text"
-                className="input"
+                className="form-control"
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
                 placeholder="Email"
@@ -62,7 +63,7 @@ const EditUser = () => {
           </div>
           
           <div className="field">
-            <button type="submit" className="button is-success">
+            <button type="submit" className="button btn btn-outline-success">
               Update User
             </button>
           </div>

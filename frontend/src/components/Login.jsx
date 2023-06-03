@@ -43,7 +43,7 @@ const Login = () => {
                                         className="form-control" placeholder="Password" value={password} onChange={(e) => setPassword(e.target.value)} />
                                         <label for="floatingPassword">Password</label>
                                 </div>
-                                <p className="has-text-centered">{msg}</p>
+                                <p class="text-center">{msg}</p>
                                 <div className="nav justify-content-center mb-3">
                                     <button className="button" class="btn btn-outline-primary">Login</button>
                                 </div>
