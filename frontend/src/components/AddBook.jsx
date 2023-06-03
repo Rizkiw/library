@@ -37,7 +37,7 @@ const AddBook = () => {
                 onChange={(e) => setTitle(e.target.value)}
                 placeholder="Title"
               />
-              <label className="label " for="floating">Title</label>
+              <label className="label " for="floating">Book Title</label>
           </div>
           <div className="form-floating mb-3">
               <input

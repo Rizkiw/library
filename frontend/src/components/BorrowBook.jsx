@@ -67,7 +67,7 @@ const BorrowBook = () => {
         <form onSubmit={updateBorrow}>
         <label className="label mb-3 nav justify-content-center"><h1 class="card-title ">Borrow / Return Book</h1></label>
         <div className="field mb-3">
-            <label className="label">Title</label>
+            <label className="label">Book Title</label>
             <div className="control">
               <input
                 type="text"
@@ -122,7 +122,7 @@ const BorrowBook = () => {
                 <thead>
                     <tr>
                         <th>No</th>
-                        <th>Title</th>
+                        <th>Book Title</th>
                         <th>Name</th>
                         <th>Status</th>
                     </tr>

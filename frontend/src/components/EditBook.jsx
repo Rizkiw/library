@@ -44,7 +44,7 @@ const EditBook = () => {
         <form onSubmit={updateBook}>
         <label className="label mb-3 nav justify-content-center"><h1 class="card-title ">Edit Book</h1></label>
           <div className="field mb-3">
-            <label className="label">Title</label>
+            <label className="label">Book Title</label>
             <div className="control">
               <input
                 type="text"

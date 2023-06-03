@@ -6,6 +6,7 @@ import Card from 'react-bootstrap/Card';
 import Form from 'react-bootstrap/Form';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/esm/Col';
+import ReactHTMLTableToExcel from 'react-html-table-to-excel';
 
 
 const BookList = () => {
@@ -36,6 +37,7 @@ const BookList = () => {
         <Card style={{ width: '50vw' }}>
         <Card.Body>
         <Card.Title><h1>Book List</h1></Card.Title>
+
         <Row className="mb-3">
         <Col xs={7}>
               <Form.Control
@@ -46,22 +48,28 @@ const BookList = () => {
                 />
         </Col>
         <Col>
-        <div class='d-flex justify-content-between'>
-        <div>
-        <Link to={`/user`} className='button'><button class="btn btn-outline-primary">Manage User</button></Link>
-        {' '}
-        <Link to={`/`} className='button'><button class="btn btn-outline-danger">Logout</button></Link>
-        </div>
-        </div>
+            <div class='d-flex justify-content-between'>
+            <div>
+            <Link to={`/user`} className='button'><button class="btn btn-outline-primary">Manage User</button></Link>
+            <Link to={`/`} className='button ms-3'><button class="btn btn-outline-danger">Logout</button></Link>
+            <ReactHTMLTableToExcel
+                        id="test-table-xls-button"
+                        className="btn btn-outline-success ms-3"
+                        table="table-to-xls"
+                        filename="Books Data"
+                        sheet="tablexls"
+                        buttonText="Export to XLS"/>
+            </div>
+            </div>
         </Col>
         </Row>
 
         <div className='column'>
-            <Table striped bordered hover>
+            <Table striped bordered hover id='table-to-xls'>
                 <thead>
                     <tr>
                         <th>No</th>
-                        <th>Title</th>
+                        <th>Book Title</th>
                         <th>Genre</th>
                         <th>Author</th>
                         <th>Year</th>
@@ -87,7 +95,7 @@ const BookList = () => {
                                 <td>{book.genre}</td>
                                 <td>{book.author}</td>
                                 <td>{book.year}</td>
-                                <td>
+                                <td id='button'>
                                     <Link to={`/edit/${book.id}`} className='button'><button class="btn btn-outline-info" >Edit</button></Link>
                                     {' '}
                                     <button onClick={()=> deleteBook(book.id)} className='button btn btn-outline-danger'>Delete</button>
@@ -98,7 +106,8 @@ const BookList = () => {
                         ))}
                 </tbody>
             </Table>
-                <Link to={`/add`} className='button'><button class="btn btn-outline-primary">Add Book</button></Link>
+                <Link to={`/add`} className='button'><button className="btn btn-outline-primary">Add Book</button></Link>
+ 
         </div>
         </Card.Body>
         </Card>
