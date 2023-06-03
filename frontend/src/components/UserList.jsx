@@ -24,11 +24,15 @@ const UserList = () => {
     };
 
   return (
-    <div className='column'>
+        <div className='position-absolute top-50 start-50 translate-middle shadow p-3 mb-5 bg-body rounded'>
+    <   div className='col'>
+        <div className='card-body'>
         <h1>User List</h1>
-        <Link to={`/home`} className='button'><button >Home</button></Link>
-        <div className='column'>
-            <table>
+        </div>
+        <div className='mb-3'>
+        <Link to={`/home`} ><button className='button btn btn-outline-primary' >Home</button></Link>
+        </div>
+            <table class="table table-bordered table-hover">
                 <thead>
                     <tr>
                         <th>No</th>
@@ -43,9 +47,9 @@ const UserList = () => {
                                 <td>{user.name}</td>
                                 <td>{user.email}</td>
                                 <td>
-                                    <Link to={`/editUser/${user.id}`} className='button'><button >Edit</button></Link>
+                                    <Link to={`/editUser/${user.id}`} ><button className='button btn btn-outline-primary'>Edit</button></Link>
                                     {' '}
-                                    <button onClick={()=> deleteBook(user.id)} className='button'>Delete</button>
+                                    <button onClick={()=> deleteBook(user.id)} className='button btn btn-outline-danger'>Delete</button>
                                 </td>
                             </tr>
                         ))}
