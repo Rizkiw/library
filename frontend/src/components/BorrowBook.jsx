@@ -40,7 +40,7 @@ const BorrowBook = () => {
             status
           });
         } catch (error) {
-          console.log(error);
+        setMsg(error.response.data.msg);
         }
     };
 
@@ -61,12 +61,13 @@ const BorrowBook = () => {
       setBorrow(response.data);
     };
 
-    console.log(borrows)
+    console.log(statusBook)
+    console.log(status,'status')
 
   return (
     <div className="col">
-      <div className='col-10 px-lg-5 px-2 mx-auto my-3 shadow p-3 mb-5 bg-body rounded card'>
-        <div className='col mx-auto' style={{ width: '50vw' }}>
+      <div className='shadow p-3 mb-5 bg-body rounded card-body'>
+        <div>
         <Link to={`/home`} ><button className='button btn btn-outline-primary mb-3' >Home</button></Link>
         <form onSubmit={updateBorrow}>
         <label className="label mb-3 nav justify-content-center"><h1 className="card-title ">Borrow / Return Book</h1></label>
@@ -103,7 +104,7 @@ const BorrowBook = () => {
                 className="form-control"
                 value={statusBook}
                 onChange={(e) => setStatusBook(e.target.value)}
-                placeholder="Title"
+                placeholder="Status"
                 disabled
               />
             </div>
@@ -124,7 +125,7 @@ const BorrowBook = () => {
           </div>
         </form>
         <label className="label mb-3"><h4 class="card-title ">History :</h4></label>
-        <div className='col'>
+        <div className='table-responsive'>
             <table className="table table-bordered table-hover">
                 <thead>
                     <tr>

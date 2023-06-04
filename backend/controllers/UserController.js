@@ -74,8 +74,7 @@ export const regisUser = async(req, res) => {
 }
 
 export const updateUser = async(req, res) => {
-    const {status} = req.body;
-    if(status === '') return res.status(400).json({msg: "Please choose borrow/return"});
+
     try {
         await User.update(req.body,{
             where:{
@@ -141,14 +140,14 @@ export const createBook = async(req, res) => {
 }
 
 export const updateBook = async(req, res) => {
-    const {title, genre, author, year} = req.body
+    const {title, genre, author, year, status} = req.body
     try {
         await Book.update({
             title: title,
             genre: genre,
             author: author,
             year: year,
-            photo:req.file.filename
+            status: status,
         },{
             where:{
                 id:req.params.id

@@ -44,8 +44,7 @@ const EditBook = () => {
 
   return (
     <div className="col">
-      <div className='col-10 px-lg-5 px-2 mx-auto my-3 shadow p-3 mb-5 bg-body rounded card'>
-        <div className='col mx-auto' style={{ width: '50vw' }}>
+      <div className=' shadow p-3 mb-5 bg-body rounded card-body'>
         <Link to={`/home`} ><button className='button btn btn-outline-primary mb-3' >Home</button></Link>
         <form onSubmit={updateBook}>
         <label className="label mb-3 nav justify-content-center"><h1 class="card-title ">Edit Book</h1></label>
@@ -54,14 +53,6 @@ const EditBook = () => {
               <div className="control d-flex justify-content-around">
                 <img src={`http://localhost:5000/${photo}`} alt='' className='w-25 h-25 mb-3'/>
               </div>
-            <label className="label">Book Cover</label>
-              <input
-                id='photo'
-                type="file"
-                className="form-control" name="path"
-                onChange={(e) => setPhoto(e.target.files[0])}
-                placeholder="Choose book image"
-              />
             </div>
           </div>
           <div className="field mb-3">
@@ -118,7 +109,6 @@ const EditBook = () => {
             </button>
           </div>
         </form>
-        </div>
       </div>
     </div>
   )
