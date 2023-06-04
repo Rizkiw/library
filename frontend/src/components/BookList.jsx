@@ -28,7 +28,7 @@ const BookList = () => {
 
   return (
     <div className='form'>
-    <div className="card">
+    <div className="">
         <div className='card-body shadow p-3 mb-5 bg-body rounded'>
         <div className='card-title'><h1>Book List</h1></div>
         <div className="nav">

@@ -28,8 +28,8 @@ const AddBook = () => {
     };
 
   return (
-    <div className="col">
-      <div className='position-absolute top-50 start-50 translate-middle shadow p-3 mb-5 bg-body rounded card' style={{ width: '25vw' }}>
+    <div className="form">
+      <div className='shadow p-3 mb-5 bg-body rounded card-body'>
         <form onSubmit={saveBook}>
         <label className="label mb-3 nav justify-content-center"><h1 class="card-title ">Add Book</h1></label>
         <label className="label " for="floating">Book Cover</label>
