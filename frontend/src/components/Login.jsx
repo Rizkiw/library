@@ -25,10 +25,10 @@ const Login = () => {
     }
 
   return (
-    <div className="hero-body">
-                <div className="container-sm ">
-                    <div class="position-absolute top-50 start-50 translate-middle shadow p-3 mb-5 bg-body rounded card " style={{ width: '25vw' }}>
-                        <div className="card-body">
+    <div className="form">
+                <div className="form-login">
+                    <div class="card" >
+                        <div className="card-body-login shadow p-3 mb-5 bg-body rounded">
                             <form onSubmit={Auth} className="box">
                                 <div className="field">
                                     <label className="label mb-3 nav justify-content-center"><h1 class="card-title ">Login</h1></label>

@@ -7,34 +7,18 @@
   pointer-events: none;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
-}
-
 .Centered {
   align-items: center;
   justify-content: center;
 }
 
-.App-link {
-  color: #61dafb;
-}
-
 .form {
   margin-top: 3rem;
+}
+
+.form-login {
+  margin:auto;
+  margin-top: 10%;
 }
 
 .card {
@@ -44,12 +28,18 @@
 
 .card-title {
   text-align: start;
-  padding-bottom: 1rem;
 }
 
 .card-body {
   margin:auto;
+  margin-top: 2rem;
   width: 50vw;
+}
+
+.card-body-login {
+  margin:auto;
+  margin-top: 2rem;
+  width: 25vw;
 }
 
 .nav {
@@ -60,10 +50,13 @@
 
 .nav-search {
   width: 50%;
+  margin-top: 1rem;
+
 }
 
 .nav-button {
   display: flex;
+  margin-top: 1rem;
 } 
 
 .nav-button .button{
@@ -79,6 +72,12 @@
 
   .card-body {
     margin:auto;
+    width: 90vw;
+  }
+
+  .card-body-login {
+    margin:auto;
+    margin-top: 2rem;
     width: 90vw;
   }
 
