@@ -25,3 +25,5 @@ dependencies : axios, react-router-doom, bootstrap, react-html-table-to-excel
 - Upload book image
 
 - Export table to excel
+
+- Search and Filtering books
