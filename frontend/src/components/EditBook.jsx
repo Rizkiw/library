@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { useNavigate, useParams } from "react-router-dom";
+import { Link } from 'react-router-dom';
 
 const EditBook = () => {
     const [title, setTitle] = useState("");
@@ -43,13 +44,17 @@ const EditBook = () => {
 
   return (
     <div className="col">
-      <div className='position-absolute top-50 start-50 translate-middle shadow p-3 mb-5 bg-body rounded card' style={{ width: '25vw' }}>
+      <div className='col-10 px-lg-5 px-2 mx-auto my-3 shadow p-3 mb-5 bg-body rounded card'>
+        <div className='col mx-auto' style={{ width: '50vw' }}>
+        <Link to={`/home`} ><button className='button btn btn-outline-primary mb-3' >Home</button></Link>
         <form onSubmit={updateBook}>
         <label className="label mb-3 nav justify-content-center"><h1 class="card-title ">Edit Book</h1></label>
           <div className="field mb-3">
-            <label className="label">Book Cover</label>
             <div className="control">
-            <img src={`http://localhost:5000/${photo}`} alt='' className='w-25 h-25 mb-3'/>
+              <div className="control d-flex justify-content-around">
+                <img src={`http://localhost:5000/${photo}`} alt='' className='w-25 h-25 mb-3'/>
+              </div>
+            <label className="label">Book Cover</label>
               <input
                 id='photo'
                 type="file"
@@ -113,6 +118,7 @@ const EditBook = () => {
             </button>
           </div>
         </form>
+        </div>
       </div>
     </div>
   )

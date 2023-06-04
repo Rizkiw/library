@@ -7,7 +7,6 @@ import { Link } from 'react-router-dom';
 const BorrowBook = () => {
     const [users, setUser] = useState([]);
     const [borrows, setBorrow] = useState([]);
-    const [search, setSearch] = useState('');
     const [msg, setMsg] = useState('');
     const [title, setTitle] = useState("");
     const [photo, setPhoto] = useState("");
@@ -65,9 +64,9 @@ const BorrowBook = () => {
     console.log(borrows)
 
   return (
-    <div className="col justify-content-center">
+    <div className="col">
       <div className='col-10 px-lg-5 px-2 mx-auto my-3 shadow p-3 mb-5 bg-body rounded card'>
-        <div className='col mx-auto  ' style={{ width: '50vw' }}>
+        <div className='col mx-auto' style={{ width: '50vw' }}>
         <Link to={`/home`} ><button className='button btn btn-outline-primary mb-3' >Home</button></Link>
         <form onSubmit={updateBorrow}>
         <label className="label mb-3 nav justify-content-center"><h1 className="card-title ">Borrow / Return Book</h1></label>
