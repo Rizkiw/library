@@ -7,19 +7,28 @@ const AddBook = () => {
     const [genre, setGenre] = useState("");
     const [author, setAuthor] = useState("");
     const [year, setYear] = useState("");
+    const [photo, setPhoto] = useState(null);
     const navigate = useNavigate();
-  
+
     const saveBook = async (e) => {
       e.preventDefault();
+    // const formData = new FormData();
+    // formData.append('title', title);
+    // formData.append('genre', genre);
+    // formData.append('author', author);
+    // formData.append('year', year);
+    // formData.append('path', photo);
+
       try {
         await axios.post("http://localhost:5000/books", {
             title,
             genre,
             author,
-            year
+            year,
+            photo
         });
         navigate("/home");
-      } catch (error) {
+      } catch (error) { 
         console.log(error);
       }
     };
@@ -29,11 +38,20 @@ const AddBook = () => {
       <div className='position-absolute top-50 start-50 translate-middle shadow p-3 mb-5 bg-body rounded card' style={{ width: '25vw' }}>
         <form onSubmit={saveBook}>
         <label className="label mb-3 nav justify-content-center"><h1 class="card-title ">Add Book</h1></label>
+        <label className="label " for="floating">Book Image</label>
+        <div className="mb-3">
+              <input
+                id='photo'
+                type="file" name="path"
+                className="form-control my-2"
+                onChange={(e) => setPhoto(e.target.files[0])}
+                placeholder="Choose book image"
+              />
+          </div>
           <div className="form-floating mb-3">
               <input
-                type="text" id="floating"
+                type="text" id="title"
                 className="form-control"
-                value={title}
                 onChange={(e) => setTitle(e.target.value)}
                 placeholder="Title"
               />
@@ -41,9 +59,8 @@ const AddBook = () => {
           </div>
           <div className="form-floating mb-3">
               <input
-                type="text" id="floating"
+                type="text" id="genre"
                 className="form-control"
-                value={genre}
                 onChange={(e) => setGenre(e.target.value)}
                 placeholder="Genre"
               />
@@ -51,9 +68,8 @@ const AddBook = () => {
           </div>
           <div className="form-floating mb-3">
               <input
-                type="text" id="floating"
+                type="text" id="author"
                 className="form-control"
-                value={author}
                 onChange={(e) => setAuthor(e.target.value)}
                 placeholder="Author"
               />
@@ -61,9 +77,8 @@ const AddBook = () => {
           </div>
           <div className="form-floating mb-3">
               <input
-                type="number" id="floating"
+                type="number" id="year"
                 className="form-control"
-                value={year}
                 onChange={(e) => setYear(e.target.value)}
                 placeholder="Year"
               />

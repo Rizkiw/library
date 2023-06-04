@@ -11,7 +11,6 @@ import {
     getUser,
     getUserById,
     regisUser,
-    returnBook,
     updateBook,
     updateUser
   } from "../controllers/UserController.js";
@@ -31,7 +30,6 @@ router.delete('/books/:id', deleteBook);
 router.post('/login', Login);
 router.get('/borrow', getBorrow);
 router.post('/borrow', borrowBook);
-router.patch('/return', returnBook);
 
 
 export default router;

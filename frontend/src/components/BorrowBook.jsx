@@ -60,12 +60,14 @@ const BorrowBook = () => {
       setBorrow(response.data);
     };
 
+    console.log(borrows)
+
   return (
     <div className="col">
       <div className='position-absolute top-50 start-50 translate-middle shadow p-3 mb-5 bg-body rounded card' style={{ width: '25vw' }}>
         <Link to={`/home`} ><button className='button btn btn-outline-primary mb-3' >Home</button></Link>
         <form onSubmit={updateBorrow}>
-        <label className="label mb-3 nav justify-content-center"><h1 class="card-title ">Borrow / Return Book</h1></label>
+        <label className="label mb-3 nav justify-content-center"><h1 className="card-title ">Borrow / Return Book</h1></label>
         <div className="field mb-3">
             <label className="label">Book Title</label>
             <div className="control">
@@ -125,6 +127,7 @@ const BorrowBook = () => {
                         <th>Book Title</th>
                         <th>Name</th>
                         <th>Status</th>
+                        {/* <th>Date</th> */}
                     </tr>
                 </thead>
                 <tbody>
@@ -140,6 +143,7 @@ const BorrowBook = () => {
                                 <td>{book.title}</td>
                                 <td>{book.name}</td>
                                 <td>{book.status}</td>
+                                {/* <td>{book.createdAt}</td> */}
                             </tr>
                         ))}
                 </tbody>

@@ -7,7 +7,9 @@ const Book = db.define('books', {
     title: DataTypes.STRING,
     genre: DataTypes.STRING,
     author: DataTypes.STRING,
-    year: DataTypes.STRING
+    year: DataTypes.STRING,
+    photo: DataTypes.STRING,
+    status: DataTypes.STRING
 }, {
     freezeTableName : true
 });

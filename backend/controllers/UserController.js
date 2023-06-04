@@ -14,29 +14,21 @@ export const getBorrow = async(req, res) => {
 }
 
 export const borrowBook = async(req, res) => {
-    try {
-        await Borrow.create(req.body);
-        res.status(201).json({msg: 'Book Borrowed'});
-    } catch (error) {
-        console.log(error.message);
-    }
-}
-
-export const returnBook = async(req, res) => {
-    const { name, title, status, isBorrow } = req.body;
-    if(status === isBorrow) return res.status(400).json({msg: "Out of Stock"});
+    const { name, title, status, statusBook } = req.body;
+    if(name === '') return res.status(400).json({msg: "Please choose name"});
+    if(status === '') return res.status(400).json({msg: "Please choose borrow/return"});
+    if(status === statusBook) return res.status(400).json({msg: "Book still borrowed (Not Available)"});
     try {
         await Borrow.create({
             name: name,
             title: title,
             status: status
         });
-        res.status(201).json({msg: 'Book Returned'});
+        res.status(201).json({msg: 'Book Borrowed'});
     } catch (error) {
         console.log(error.message);
     }
 }
-
 
 //User Table
 export const getUser = async(req, res) => {
@@ -81,6 +73,8 @@ export const regisUser = async(req, res) => {
 }
 
 export const updateUser = async(req, res) => {
+    const {status} = req.body;
+    if(status === '') return res.status(400).json({msg: "Please choose borrow/return"});
     try {
         await User.update(req.body,{
             where:{
@@ -130,8 +124,14 @@ export const getBookById = async(req, res) => {
 }
 
 export const createBook = async(req, res) => {
+    const {title, genre, author, year} = req.body
     try {
-        await Book.create(req.body);
+        await Book.create({
+            title: title,
+            genre: genre,
+            author: author,
+            year: year,
+        });
         res.status(201).json({msg: 'Book Added'});
     } catch (error) {
         console.log(error.message);
