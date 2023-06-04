@@ -32,7 +32,7 @@ const Login = () => {
                         <div className="card-body-login shadow p-3 mb-5 bg-body rounded">
                             <form onSubmit={Auth} className="box">
                                 <div className="field">
-                                    <label className="label mb-3 nav justify-content-center"><h1 class="card-title ">Login</h1></label>
+                                    <label className="label mb-3 nav justify-content-center"><h2 class="card-title ">Login</h2></label>
                                     <div className="form-floating mb-3">
                                         <input type="text" id="floatingInput"
                                         className="form-control" placeholder="Email" value={email} onChange={(e) => setEmail(e.target.value)} />

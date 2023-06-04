@@ -24,14 +24,13 @@ const UserList = () => {
     };
 
   return (
-        <div className='position-absolute top-50 start-50 translate-middle shadow p-3 mb-5 bg-body rounded'>
-    <   div className='col'>
+        <div className='form'>
+        <div className='card shadow p-3 mb-5 bg-body rounded'>
         <div className='card-body'>
-        <h1>User List</h1>
-        </div>
-        <div className='mb-3'>
-        <Link to={`/home`} ><button className='button btn btn-outline-primary' >Home</button></Link>
-        </div>
+            <div className='card-title mt-5'><h1>User List</h1>
+                <Link to={`/home`} ><button className='button btn btn-outline-primary' >Home</button></Link>
+            </div>
+            <div className='table-responsive'>
             <table class="table table-bordered table-hover">
                 <thead>
                     <tr>
@@ -47,14 +46,18 @@ const UserList = () => {
                                 <td>{user.name}</td>
                                 <td>{user.email}</td>
                                 <td>
+                                    <div className='nav-button'>
                                     <Link to={`/editUser/${user.id}`} ><button className='button btn btn-outline-primary'>Edit</button></Link>
                                     {' '}
                                     <button onClick={()=> deleteBook(user.id)} className='button btn btn-outline-danger'>Delete</button>
+                                    </div>
                                 </td>
                             </tr>
                         ))}
                 </tbody>
             </table>
+            </div>
+        </div>
         </div>
     </div>
     )
