@@ -1,6 +1,7 @@
 import User from "../models/LoginModel.js";
 import Book from "../models/UserModel.js";
 import Borrow from "../models/BorrowModel.js";
+import multer from "multer";
 import bcrypt from "bcrypt";
 
 
@@ -131,6 +132,7 @@ export const createBook = async(req, res) => {
             genre: genre,
             author: author,
             year: year,
+            photo:req.file.filename
         });
         res.status(201).json({msg: 'Book Added'});
     } catch (error) {
@@ -139,8 +141,15 @@ export const createBook = async(req, res) => {
 }
 
 export const updateBook = async(req, res) => {
+    const {title, genre, author, year} = req.body
     try {
-        await Book.update(req.body,{
+        await Book.update({
+            title: title,
+            genre: genre,
+            author: author,
+            year: year,
+            photo:req.file.filename
+        },{
             where:{
                 id:req.params.id
             }
@@ -177,4 +186,17 @@ export const Login = async(req, res) => {
     } catch (error) {
         res.status(404).json({msg:"Email tidak ditemukan"});
     }
+}
+
+export const fileUpload = (fieldName) => {
+    const storage = multer.diskStorage({
+        destination: (req, res, cb) => {
+            cb(null, 'uploads/')
+        },
+        filename: (req, file, cb) => {
+            cb(null,file.fieldname + '-' + file.originalname)
+        }
+    })
+    const upload = multer({storage})
+    return upload.single(fieldName)
 }

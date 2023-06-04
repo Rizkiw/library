@@ -5,6 +5,7 @@ import {
     createBook,
     deleteBook,
     deleteUser,
+    fileUpload,
     getBookById,
     getBooks,
     getBorrow,
@@ -24,8 +25,8 @@ router.patch('/users/:id', updateUser);
 router.delete('/users/:id', deleteUser);
 router.get('/books', getBooks);
 router.get('/books/:id', getBookById);
-router.post('/books', createBook);
-router.patch('/books/:id', updateBook);
+router.post('/books', fileUpload('path'), createBook);
+router.patch('/books/:id', fileUpload('path'), updateBook);
 router.delete('/books/:id', deleteBook);
 router.post('/login', Login);
 router.get('/borrow', getBorrow);
