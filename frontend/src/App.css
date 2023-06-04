@@ -33,11 +33,75 @@
   color: #61dafb;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+.form {
+  margin-top: 3rem;
+}
+
+.card {
+  margin:auto;
+  width: 75%;
+}
+
+.card-title {
+  text-align: start;
+  padding-bottom: 1rem;
+}
+
+.card-body {
+  margin:auto;
+  width: 50vw;
+}
+
+.nav {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 2rem;
+}
+
+.nav-search {
+  width: 50%;
+}
+
+.nav-button {
+  display: flex;
+} 
+
+.nav-button .button{
+  margin: 0 0.5rem;
+} 
+
+@media screen and (max-width: 600px) {
+
+  .card {
+    margin:auto;
+    width: 90vw;
   }
-  to {
-    transform: rotate(360deg);
+
+  .card-body {
+    margin:auto;
+    width: 90vw;
   }
+
+  .nav {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 2rem;
+  }
+
+  .nav-search {
+    width: 100%;
+    margin-bottom: 1rem;
+  }
+
+  .nav-button {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+  } 
+
+  .nav-button .button{
+    margin: 0.5rem;
+  } 
+
 }

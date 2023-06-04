@@ -26,16 +26,14 @@ const BookList = () => {
         }
     };
 
-    console.log(books)
   return (
     <div className='form'>
-    <div className="shadow p-3 mb-5 bg-body rounded col-10 px-lg-5 px-2 my-3 mx-auto  ">
-        <div className='card mx-auto  ' style={{ width: '50vw' }}>
+    <div className="card">
         <div className='card-body'>
         <div className='card-title'><h1>Book List</h1></div>
 
-        <div className="mb-3 row">
-            <div className='col' xs={7}>
+        <div className="nav">
+            <div className='nav-search'>
                 <input
                     type="text"
                     className="form-control"
@@ -43,24 +41,20 @@ const BookList = () => {
                     placeholder="Search..."
                     />
             </div>
-            <div className='col'>
-                <div className='d-flex justify-content-between'>
-                    <div>
+            <div className='nav-button'>
                     <Link to={`/user`} className='button'><button class="btn btn-outline-primary">Manage User</button></Link>
-                    <Link to={`/`} className='button ms-3'><button class="btn btn-outline-danger">Logout</button></Link>
+                    <Link to={`/`} className='button'><button class="btn btn-outline-danger">Logout</button></Link>
                     <ReactHTMLTableToExcel
                                 id="test-table-xls-button"
-                                className="btn btn-outline-success ms-3"
+                                className="btn btn-outline-success"
                                 table="table-to-xls"
                                 filename="Books Data"
                                 sheet="tablexls"
                                 buttonText="Export to XLS"/>
-                    </div>
-                </div>
             </div>
         </div>
 
-        <div className='col'>
+        <div className='table-responsive'>
             <table className="table table-bordered table-hover " id='table-to-xls'>
                 <thead>
                     <tr>
@@ -109,7 +103,6 @@ const BookList = () => {
             </table>
                 <Link to={`/add`} className='button'><button className="btn btn-outline-primary">Add Book</button></Link>
  
-        </div>
         </div>
         </div>
     </div>
