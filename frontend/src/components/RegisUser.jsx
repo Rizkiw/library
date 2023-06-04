@@ -26,10 +26,11 @@ const RegisUser = () => {
     };
 
   return (
-    <div className="columns">
-      <div className="position-absolute top-50 start-50 translate-middle shadow p-3 mb-5 bg-body rounded card " style={{ width: '25vw' }}>
+    <div className="form">
+      <div className="shadow p-3 mb-5 bg-body rounded card">
+        <div className="card-body-regis">
         <form onSubmit={saveUser}>
-            <label className="label mb-3 nav justify-content-center"><h1 class="card-title ">Register</h1></label>
+          <label><h1 class="card-title ">Register</h1></label>
           <div className="field">
             <div className="form-floating mb-3">
               <input
@@ -79,12 +80,13 @@ const RegisUser = () => {
             </div>
           </div>
           <p>{msg}</p>
-          <div className="nav justify-content-center">
+          <div className="nav">
             <button type="submit" className="button btn btn-outline-success">
               Register
             </button>
           </div>
         </form>
+        </div>
       </div>
     </div>
   )

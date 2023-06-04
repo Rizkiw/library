@@ -42,6 +42,12 @@
   width: 25vw;
 }
 
+.card-body-regis {
+  margin:auto;
+  margin-top: 2rem;
+  width: 25vw;
+}
+
 .nav {
   display: flex;
   justify-content: space-between;
@@ -81,6 +87,12 @@
     width: 90vw;
   }
 
+  .card-body-regis {
+    margin:auto;
+    margin-top: 2rem;
+    width: 90vw;
+  }
+
   .nav {
     display: flex;
     justify-content: space-between;
@@ -102,5 +114,9 @@
   .nav-button .button{
     margin: 0.5rem;
   } 
+
+  .field {
+    width: 90%;
+  }
 
 }

@@ -28,6 +28,7 @@ const Login = () => {
     <div className="form">
                 <div className="form-login">
                     <div class="card" >
+                        <label className="label mt-3 nav justify-content-center"><h1 class="card-title ">Library App</h1></label>
                         <div className="card-body-login shadow p-3 mb-5 bg-body rounded">
                             <form onSubmit={Auth} className="box">
                                 <div className="field">
