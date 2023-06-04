@@ -4,6 +4,7 @@ import { useNavigate, useParams } from "react-router-dom";
 
 const EditBook = () => {
     const [title, setTitle] = useState("");
+    const [photo, setPhoto] = useState("");
     const [genre, setGenre] = useState("");
     const [author, setAuthor] = useState("");
     const [year, setYear] = useState("");
@@ -16,13 +17,14 @@ const EditBook = () => {
 
     const updateBook = async (e) => {
         e.preventDefault();
+        const formData = new FormData();
+        formData.append('title', title);
+        formData.append('genre', genre);
+        formData.append('author', author);
+        formData.append('year', year);
+        formData.append('path', photo);
         try {
-          await axios.patch(`http://localhost:5000/books/${id}`, {
-            title,
-            genre,
-            author,
-            year
-          });
+          await axios.patch(`http://localhost:5000/books/${id}`, formData);
           navigate("/home");
         } catch (error) {
           console.log(error);
@@ -35,6 +37,7 @@ const EditBook = () => {
         setGenre(response.data.genre);
         setAuthor(response.data.author);
         setYear(response.data.year);
+        setPhoto(response.data.photo);
     };
 
 
@@ -43,6 +46,19 @@ const EditBook = () => {
       <div className='position-absolute top-50 start-50 translate-middle shadow p-3 mb-5 bg-body rounded card' style={{ width: '25vw' }}>
         <form onSubmit={updateBook}>
         <label className="label mb-3 nav justify-content-center"><h1 class="card-title ">Edit Book</h1></label>
+          <div className="field mb-3">
+            <label className="label">Book Cover</label>
+            <div className="control">
+            <img src={`http://localhost:5000/${photo}`} alt='' className='w-25 h-25 mb-3'/>
+              <input
+                id='photo'
+                type="file"
+                className="form-control" name="path"
+                onChange={(e) => setPhoto(e.target.files[0])}
+                placeholder="Choose book image"
+              />
+            </div>
+          </div>
           <div className="field mb-3">
             <label className="label">Book Title</label>
             <div className="control">

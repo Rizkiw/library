@@ -26,10 +26,11 @@ const BookList = () => {
         }
     };
 
+    console.log(books)
   return (
     <div className='form'>
-    <div className="position-absolute top-50 start-50 translate-middle shadow p-3 mb-5 bg-body rounded">
-        <div className='card' style={{ width: '50vw' }}>
+    <div className="shadow p-3 mb-5 bg-body rounded col-10 px-lg-5 px-2 my-3 mx-auto  ">
+        <div className='card mx-auto  ' style={{ width: '50vw' }}>
         <div className='card-body'>
         <div className='card-title'><h1>Book List</h1></div>
 
@@ -43,27 +44,28 @@ const BookList = () => {
                     />
             </div>
             <div className='col'>
-                <div class='d-flex justify-content-between'>
-                <div>
-                <Link to={`/user`} className='button'><button class="btn btn-outline-primary">Manage User</button></Link>
-                <Link to={`/`} className='button ms-3'><button class="btn btn-outline-danger">Logout</button></Link>
-                <ReactHTMLTableToExcel
-                            id="test-table-xls-button"
-                            className="btn btn-outline-success ms-3"
-                            table="table-to-xls"
-                            filename="Books Data"
-                            sheet="tablexls"
-                            buttonText="Export to XLS"/>
-                </div>
+                <div className='d-flex justify-content-between'>
+                    <div>
+                    <Link to={`/user`} className='button'><button class="btn btn-outline-primary">Manage User</button></Link>
+                    <Link to={`/`} className='button ms-3'><button class="btn btn-outline-danger">Logout</button></Link>
+                    <ReactHTMLTableToExcel
+                                id="test-table-xls-button"
+                                className="btn btn-outline-success ms-3"
+                                table="table-to-xls"
+                                filename="Books Data"
+                                sheet="tablexls"
+                                buttonText="Export to XLS"/>
+                    </div>
                 </div>
             </div>
         </div>
 
-        <div className='column'>
-            <table className="table table-bordered table-hover" id='table-to-xls'>
+        <div className='col'>
+            <table className="table table-bordered table-hover " id='table-to-xls'>
                 <thead>
                     <tr>
                         <th>No</th>
+                        <th>Book</th>
                         <th>Book Title</th>
                         <th>Genre</th>
                         <th>Author</th>
@@ -86,16 +88,20 @@ const BookList = () => {
                         }).map((book, index) => (
                             <tr key={book.id}>
                                 <td>{index + 1}</td>
+                                <td className='d-flex justify-content-around'><img src={`http://localhost:5000/${book.photo}`} alt='' className='w-50 h-50'/></td>
                                 <td>{book.title}</td>
                                 <td>{book.genre}</td>
                                 <td>{book.author}</td>
                                 <td>{book.year}</td>
                                 <td id='button'>
-                                    <Link to={`/edit/${book.id}`} className='button'><button class="btn btn-outline-info" >Edit</button></Link>
-                                    {' '}
-                                    <button onClick={()=> deleteBook(book.id)} className='button btn btn-outline-danger'>Delete</button>
-                                    {' '}
-                                    <Link to={`/borrow/${book.id}`} className='button'><button class="btn btn-outline-info" >Borrow / Return</button></Link>
+                                    <div className='d-flex justify-content-around'>
+                                    <Link to={`/edit/${book.id}`} className='button'><button className="btn btn-outline-info mx-3 my-3" >Edit</button></Link>
+
+                                    <button onClick={()=> deleteBook(book.id)} className='btn btn-outline-danger mx-3 my-3 h-25'>Delete</button>
+
+                                    <Link to={`/borrow/${book.id}`} className='button'><button className="btn btn-outline-info mx-3 my-3 h-50" >Borrow/Return</button></Link>
+                                    </div>
+
                                 </td>
                             </tr>
                         ))}

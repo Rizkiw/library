@@ -10,6 +10,7 @@ const BorrowBook = () => {
     const [search, setSearch] = useState('');
     const [msg, setMsg] = useState('');
     const [title, setTitle] = useState("");
+    const [photo, setPhoto] = useState("");
     const [name, setName] = useState("");
     const [status, setStatus] = useState("");
     const [statusBook, setStatusBook] = useState("");
@@ -48,6 +49,7 @@ const BorrowBook = () => {
         const response = await axios.get(`http://localhost:5000/books/${id}`);
         setTitle(response.data.title);
         setStatusBook(response.data.status);
+        setPhoto(response.data.photo);
     };
 
     const getUsers = async () =>{
@@ -63,12 +65,16 @@ const BorrowBook = () => {
     console.log(borrows)
 
   return (
-    <div className="col">
-      <div className='position-absolute top-50 start-50 translate-middle shadow p-3 mb-5 bg-body rounded card' style={{ width: '25vw' }}>
+    <div className="col justify-content-center">
+      <div className='col-10 px-lg-5 px-2 mx-auto my-3 shadow p-3 mb-5 bg-body rounded card'>
+        <div className='col mx-auto  ' style={{ width: '50vw' }}>
         <Link to={`/home`} ><button className='button btn btn-outline-primary mb-3' >Home</button></Link>
         <form onSubmit={updateBorrow}>
         <label className="label mb-3 nav justify-content-center"><h1 className="card-title ">Borrow / Return Book</h1></label>
         <div className="field mb-3">
+              <div className="control d-flex justify-content-around">
+              <img src={`http://localhost:5000/${photo}`} alt='' className='w-25 h-25 mb-3'/>
+              </div>
             <label className="label">Book Title</label>
             <div className="control">
               <input
@@ -148,6 +154,7 @@ const BorrowBook = () => {
                         ))}
                 </tbody>
             </table>
+        </div>
         </div>
       </div>
     </div>

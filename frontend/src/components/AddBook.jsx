@@ -12,21 +12,15 @@ const AddBook = () => {
 
     const saveBook = async (e) => {
       e.preventDefault();
-    // const formData = new FormData();
-    // formData.append('title', title);
-    // formData.append('genre', genre);
-    // formData.append('author', author);
-    // formData.append('year', year);
-    // formData.append('path', photo);
+      const formData = new FormData();
+      formData.append('title', title);
+      formData.append('genre', genre);
+      formData.append('author', author);
+      formData.append('year', year);
+      formData.append('path', photo);
 
       try {
-        await axios.post("http://localhost:5000/books", {
-            title,
-            genre,
-            author,
-            year,
-            photo
-        });
+        await axios.post("http://localhost:5000/books", formData);
         navigate("/home");
       } catch (error) { 
         console.log(error);
@@ -38,7 +32,7 @@ const AddBook = () => {
       <div className='position-absolute top-50 start-50 translate-middle shadow p-3 mb-5 bg-body rounded card' style={{ width: '25vw' }}>
         <form onSubmit={saveBook}>
         <label className="label mb-3 nav justify-content-center"><h1 class="card-title ">Add Book</h1></label>
-        <label className="label " for="floating">Book Image</label>
+        <label className="label " for="floating">Book Cover</label>
         <div className="mb-3">
               <input
                 id='photo'
