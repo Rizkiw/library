@@ -58,8 +58,6 @@ export const getUserById = async(req, res) => {
 
 export const regisUser = async(req, res) => {
     const { name, email, password, confPassword } = req.body;
-    const salt = await bcrypt.genSalt();
-    const hashPassword = await bcrypt.hash(password, salt);
     try {
         const user = await User.findAll({
             where:{
@@ -72,6 +70,8 @@ export const regisUser = async(req, res) => {
         console.log(error.message);
     }
     if(password !== confPassword) return res.status(400).json({msg: "Password and Confirm Password not match"});
+    const salt = await bcrypt.genSalt();
+    const hashPassword = await bcrypt.hash(password, salt);
     try {
         await User.create({
             name: name,
