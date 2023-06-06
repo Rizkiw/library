@@ -2,7 +2,9 @@
 
 ## Backend : Node JS, MySQL
 
-Database : Using MySQL, db name : library_db
+Database : Using MySQL
+ 
+db name : library_db
 
 server : localhost:5000
 
