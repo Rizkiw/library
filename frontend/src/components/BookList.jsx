@@ -78,15 +78,15 @@ const BookList = () => {
                             } else if (val.year.includes(search)) {
                                 return val
                             }
-                        }).map((book, index) => (
-                            <tr key={book.id}>
-                                <td>{index + 1}</td>
-                                <td className='d-flex justify-content-around'><img src={`http://localhost:5000/${book.photo}`} alt='' className='w-50 h-50'/></td>
-                                <td>{book.title}</td>
-                                <td>{book.genre}</td>
-                                <td>{book.author}</td>
-                                <td>{book.year}</td>
-                                <td id='button'>
+                                }).map((book, index) => (
+                                    <tr key={book.id}>
+                                        <td>{index + 1}</td>
+                                        <td className='d-flex justify-content-around'><img src={`http://localhost:5000/${book.photo}`} alt='' className='w-50 h-50'/></td>
+                                        <td>{book.title}</td>
+                                        <td>{book.genre}</td>
+                                        <td>{book.author}</td>
+                                        <td>{book.year}</td>
+                                        <td id='button'>
                                     <div className='d-flex justify-content-around'>
                                     <Link to={`/edit/${book.id}`} className='button'><button className="btn btn-outline-info mx-3 my-3" >Edit</button></Link>
 
@@ -97,7 +97,8 @@ const BookList = () => {
 
                                 </td>
                             </tr>
-                        ))}
+                             ))
+                        }
                 </tbody>
             </table>
                 <Link to={`/add`} className='button'><button className="btn btn-outline-primary">Add Book</button></Link>

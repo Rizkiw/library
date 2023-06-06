@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
+import { Link } from 'react-router-dom';
 
 const AddBook = () => {
     const [title, setTitle] = useState("");
@@ -30,6 +31,7 @@ const AddBook = () => {
   return (
     <div className="form">
       <div className='shadow p-3 mb-5 bg-body rounded card-body'>
+        <Link to={`/home`} ><button className='button btn btn-outline-primary mb-3' >Home</button></Link>
         <form onSubmit={saveBook}>
         <label className="label mb-3 nav justify-content-center"><h1 class="card-title ">Add Book</h1></label>
         <label className="label " for="floating">Book Cover</label>

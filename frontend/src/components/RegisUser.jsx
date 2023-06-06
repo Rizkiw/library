@@ -1,6 +1,7 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
+import { Link } from 'react-router-dom';
 
 const RegisUser = () => {
     const [name, setName] = useState("");
@@ -23,11 +24,22 @@ const RegisUser = () => {
       } catch (error) {
         setMsg(error.response.data.msg);
       }
+      try {
+        await axios.post('http://localhost:5000/users', {
+            email: email,
+            password: password
+        });
+      } catch (error) {
+          if (error.response) {
+              setMsg(error.response.data.msg);
+          }
+      }
     };
 
   return (
     <div className="form">
       <div className="shadow p-3 mb-5 bg-body rounded card">
+      <Link to={`/`} ><button className='button btn btn-outline-primary mb-3' >Home</button></Link>
         <div className="card-body-regis">
         <form onSubmit={saveUser}>
           <label><h1 class="card-title ">Register</h1></label>
@@ -36,7 +48,6 @@ const RegisUser = () => {
               <input
                 type="text" id="floating"
                 className="form-control"
-                value={name}
                 onChange={(e) => setName(e.target.value)}
                 placeholder="Name"
               />
@@ -48,8 +59,8 @@ const RegisUser = () => {
               <input
                 type="text"id="floating"
                 className="form-control"
-                value={email}
-                onChange={(e) => setEmail(e.target.value)}
+                onChange={(e) => 
+                  setEmail(e.target.value)}
                 placeholder="Email"
               />
               <label for="floating">Email</label>
@@ -60,7 +71,6 @@ const RegisUser = () => {
               <input
                 type="password" id="floating"
                 className="form-control"
-                value={password}
                 onChange={(e) => setPassword(e.target.value)}
                 placeholder="Password"
               />
@@ -72,7 +82,6 @@ const RegisUser = () => {
               <input
                 type="password" id="floating"
                 className="form-control"
-                value={confPassword}
                 onChange={(e) => setConfPassword(e.target.value)}
                 placeholder="Confirm Password"
               />

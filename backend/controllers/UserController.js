@@ -18,7 +18,7 @@ export const borrowBook = async(req, res) => {
     const { name, title, status, statusBook } = req.body;
     if(name === '') return res.status(400).json({msg: "Please choose name"});
     if(status === '') return res.status(400).json({msg: "Please choose borrow/return"});
-    if(status === statusBook) return res.status(400).json({msg: "Book still borrowed (Not Available)"});
+    if(status === statusBook) return res.status(400).json({msg: "Please return or borrow book"});
     try {
         await Borrow.create({
             name: name,
@@ -58,9 +58,20 @@ export const getUserById = async(req, res) => {
 
 export const regisUser = async(req, res) => {
     const { name, email, password, confPassword } = req.body;
-    if(password !== confPassword) return res.status(400).json({msg: "Password and Confirm Password not match"});
     const salt = await bcrypt.genSalt();
     const hashPassword = await bcrypt.hash(password, salt);
+    try {
+        const user = await User.findAll({
+            where:{
+                email: req.body.email
+            }
+        });
+        const emailUser = user[0].email;
+        if(req.body.email === emailUser) return res.status(400).json({msg: "Email Already Used"});
+    } catch (error) {
+        console.log(error.message);
+    }
+    if(password !== confPassword) return res.status(400).json({msg: "Password and Confirm Password not match"});
     try {
         await User.create({
             name: name,
@@ -74,7 +85,6 @@ export const regisUser = async(req, res) => {
 }
 
 export const updateUser = async(req, res) => {
-
     try {
         await User.update(req.body,{
             where:{
@@ -183,7 +193,7 @@ export const Login = async(req, res) => {
         if(!match) return res.status(400).json({msg: "Wrong Password"})
         res.status(200).json(user);
     } catch (error) {
-        res.status(404).json({msg:"Email tidak ditemukan"});
+        res.status(404).json({msg:"Email not found"});
     }
 }
 

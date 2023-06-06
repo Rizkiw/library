@@ -2,6 +2,8 @@
 
 ## Backend : Node JS, MySQL
 
+Database : Using MySQL, db name : library_db
+
 server : localhost:5000
 
 dependencies : multer, bcrypt, cors, express, mysql2, sequelize
@@ -27,3 +29,7 @@ dependencies : axios, react-router-doom, bootstrap, react-html-table-to-excel
 - Export table to excel
 
 - Search and Filtering books
+
+## How to running App :
+ 1. type nodemon -start on terminal (/library/backend)
+ 2. npm start on terminal (library/frontend)
