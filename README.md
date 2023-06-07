@@ -14,7 +14,7 @@ dependencies : multer, bcrypt, cors, express, mysql2, sequelize
 
 client : localhost:3000
 
-dependencies : axios, react-router-doom, bootstrap, react-html-table-to-excel
+dependencies : axios, react-router-doom, bootstrap, react-html-table-to-excel, rc-easyui
 
 ## Feature : 
 
