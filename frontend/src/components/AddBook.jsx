@@ -8,7 +8,9 @@ const AddBook = () => {
     const [genre, setGenre] = useState("");
     const [author, setAuthor] = useState("");
     const [year, setYear] = useState("");
+    const [status, setStatus] = useState("");
     const [photo, setPhoto] = useState(null);
+    const [msg, setMsg] = useState('');
     const navigate = useNavigate();
 
     const saveBook = async (e) => {
@@ -18,15 +20,18 @@ const AddBook = () => {
       formData.append('genre', genre);
       formData.append('author', author);
       formData.append('year', year);
+      formData.append('status', status);
       formData.append('path', photo);
 
       try {
         await axios.post("http://localhost:5000/books", formData);
         navigate("/home");
       } catch (error) { 
-        console.log(error);
+        setMsg(error.response.data.msg);
       }
     };
+
+    console.log(status)
 
   return (
     <div className="form">
@@ -80,6 +85,15 @@ const AddBook = () => {
               />
               <label className="label" for="floating">Year</label>
           </div>
+          <div className="field mb-3">
+            <label className="label">Status</label>
+            <select className="form-select" aria-label="Default select example" id="status" onChange={(e) => setStatus(e.target.value)}>
+              <option selected disabled>Open this select menu</option>
+              <option value='Available'>Available</option>
+              <option value='Not Available'>Not Available</option>
+            </select> 
+          </div>
+          <p>{msg}</p>
           <div className="field">
             <button type="submit" className="button btn btn-outline-success">
               Add Book

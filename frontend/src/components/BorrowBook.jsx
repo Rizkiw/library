@@ -24,6 +24,8 @@ const BorrowBook = () => {
 
     const updateBorrow = async (e) => {
         e.preventDefault();
+    if(statusBook === '') return setMsg("Please borrow first");
+
         try {
           await axios.post(`http://localhost:5000/borrow`, {
             title,
@@ -113,8 +115,8 @@ const BorrowBook = () => {
             <label className="label">Status</label>
             <select className="form-select" aria-label="Default select example" onChange={(e) => setStatus(e.target.value)}>
               <option selected disabled>Open this select menu</option>
-              <option value='Borrowed'>Borrow</option>
-              <option value='Returned'>Return</option>
+              <option value='Not Available'>Borrow</option>
+              <option value='Available'>Return</option>
             </select> 
           </div>
           <p>{msg}</p>

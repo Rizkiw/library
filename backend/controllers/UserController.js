@@ -134,18 +134,20 @@ export const getBookById = async(req, res) => {
 }
 
 export const createBook = async(req, res) => {
-    const {title, genre, author, year} = req.body
+    const {title, genre, author, year, status} = req.body;
+    if(title === '') return res.status(400).json({msg: "Please input book title"});
     try {
         await Book.create({
             title: title,
             genre: genre,
             author: author,
             year: year,
+            status: status,
             photo:req.file.filename
         });
         res.status(201).json({msg: 'Book Added'});
     } catch (error) {
-        console.log(error.message);
+        res.status(400).json({msg: "Please add book cover"});
     }
 }
 
