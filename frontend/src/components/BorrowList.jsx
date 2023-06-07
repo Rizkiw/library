@@ -57,9 +57,9 @@ const BorrowList = () => {
                                 return val
                             }
                                 })}>                
-                    <GridColumn field="title" title="Book Title" width="30%"></GridColumn>
-                    <GridColumn field="name" title="Name"></GridColumn>
-                    <GridColumn field="status" title="Status" align="center"></GridColumn>
+                    <GridColumn field="title" title="Book Title" width="30%" align="center"></GridColumn>
+                    <GridColumn field="name" title="Name" width="10%" align="center"></GridColumn>
+                    <GridColumn field="status" title="Status" align="center" width="10%"></GridColumn>
                 </DataGrid>
             </div>
 
