@@ -32,16 +32,9 @@ const BookList = () => {
         <div className='card-body shadow p-3 mb-5 bg-body rounded'>
         <div className='card-title'><h1>Book List</h1></div>
         <div className="nav">
-            <div className='nav-search'>
-                <input
-                    type="text"
-                    className="form-control"
-                    onChange={(e) => setSearch(e.target.value)}
-                    placeholder="Search..."
-                    />
-            </div>
             <div className='nav-button'>
                     <Link to={`/user`} className='button'><button class="btn btn-outline-primary">Manage User</button></Link>
+                    <Link to={`/borrowlist`} className='button'><button class="btn btn-outline-primary">Status Book List</button></Link>
                     <Link to={`/`} className='button'><button class="btn btn-outline-danger">Logout</button></Link>
                     <ReactHTMLTableToExcel
                                 id="test-table-xls-button"
@@ -50,6 +43,14 @@ const BookList = () => {
                                 filename="Books Data"
                                 sheet="tablexls"
                                 buttonText="Export to XLS"/>
+            </div>
+            <div className='nav-search'>
+                <input
+                    type="text"
+                    className="form-control"
+                    onChange={(e) => setSearch(e.target.value)}
+                    placeholder="Search..."
+                    />
             </div>
         </div>
 

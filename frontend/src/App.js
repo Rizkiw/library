@@ -8,6 +8,7 @@ import UserList from "./components/UserList";
 import EditUser from "./components/EditUser";
 import RegisUser from "./components/RegisUser";
 import BorrowBook from './components/BorrowBook';
+import BorrowList from './components/BorrowList';
 
 function App() {
   return (
@@ -22,6 +23,7 @@ function App() {
         <Route path="/register" element={<RegisUser/>}/>
         <Route path="/borrow/:id" element={<BorrowBook/>}/>
         <Route path="/borrow" element={<BorrowBook/>}/>
+        <Route path="/borrowlist" element={<BorrowList/>}/>
       </Routes>
     </BrowserRouter>
   );
