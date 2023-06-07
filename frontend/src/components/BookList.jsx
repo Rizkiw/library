@@ -2,6 +2,7 @@ import React, {useState, useEffect} from 'react';
 import axios from "axios";
 import { Link } from 'react-router-dom';
 import ReactHTMLTableToExcel from 'react-html-table-to-excel';
+import { DataGrid, GridColumn} from 'rc-easyui';
 
 
 const BookList = () => {
@@ -53,58 +54,57 @@ const BookList = () => {
                     />
             </div>
         </div>
+            <div className='table-responsive'>
+                <table className="table table-bordered table-hover " id='table-to-xls'>
+                    <thead>
+                        <tr>
+                            <th>No</th>
+                            <th width="50%">Book</th>
+                            <th width="50%">Book Title</th>
+                            <th width="30%">Genre</th>
+                            <th width="30%">Author</th>
+                            <th>Year</th>
+                            <th>Action</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                            {books.filter((val) => {
+                                if (search === '') {
+                                    return val
+                                } else if (val.title.toLowerCase().includes(search.toLowerCase())) {
+                                    return val
+                                } else if (val.genre.toLowerCase().includes(search.toLowerCase())) {
+                                    return val
+                                } else if (val.author.toLowerCase().includes(search.toLowerCase())) {
+                                    return val
+                                } else if (val.year.includes(search)) {
+                                    return val
+                                }
+                                    }).map((book, index) => (
+                                        <tr key={book.id}>
+                                            <td>{index + 1}</td>
+                                            <td className='d-flex justify-content-around'><img src={`http://localhost:5000/${book.photo}`} alt='' className='w-50 h-50'/></td>
+                                            <td>{book.title}</td>
+                                            <td>{book.genre}</td>
+                                            <td>{book.author}</td>
+                                            <td>{book.year}</td>
+                                            <td id='button'>
+                                        <div className='d-flex justify-content-around'>
+                                        <Link to={`/edit/${book.id}`} className='button'><button className="btn btn-outline-info mx-3 my-3" >Edit</button></Link>
 
-        <div className='table-responsive'>
-            <table className="table table-bordered table-hover " id='table-to-xls'>
-                <thead>
-                    <tr>
-                        <th>No</th>
-                        <th>Book</th>
-                        <th>Book Title</th>
-                        <th>Genre</th>
-                        <th>Author</th>
-                        <th>Year</th>
-                    </tr>
-                </thead>
-                <tbody>
-                        {books.filter((val) => {
-                            if (search === '') {
-                                return val
-                            } else if (val.title.toLowerCase().includes(search.toLowerCase())) {
-                                return val
-                            } else if (val.genre.toLowerCase().includes(search.toLowerCase())) {
-                                return val
-                            } else if (val.author.toLowerCase().includes(search.toLowerCase())) {
-                                return val
-                            } else if (val.year.includes(search)) {
-                                return val
+                                        <button onClick={()=> deleteBook(book.id)} className='btn btn-outline-danger mx-3 my-3 h-25'>Delete</button>
+
+                                        <Link to={`/borrow/${book.id}`} className='button'><button className="btn btn-outline-info mx-3 my-3 h-50" >Borrow/Return</button></Link>
+                                        </div>
+
+                                    </td>
+                                </tr>
+                                ))
                             }
-                                }).map((book, index) => (
-                                    <tr key={book.id}>
-                                        <td>{index + 1}</td>
-                                        <td className='d-flex justify-content-around'><img src={`http://localhost:5000/${book.photo}`} alt='' className='w-50 h-50'/></td>
-                                        <td>{book.title}</td>
-                                        <td>{book.genre}</td>
-                                        <td>{book.author}</td>
-                                        <td>{book.year}</td>
-                                        <td id='button'>
-                                    <div className='d-flex justify-content-around'>
-                                    <Link to={`/edit/${book.id}`} className='button'><button className="btn btn-outline-info mx-3 my-3" >Edit</button></Link>
-
-                                    <button onClick={()=> deleteBook(book.id)} className='btn btn-outline-danger mx-3 my-3 h-25'>Delete</button>
-
-                                    <Link to={`/borrow/${book.id}`} className='button'><button className="btn btn-outline-info mx-3 my-3 h-50" >Borrow/Return</button></Link>
-                                    </div>
-
-                                </td>
-                            </tr>
-                             ))
-                        }
-                </tbody>
-            </table>
-                <Link to={`/add`} className='button'><button className="btn btn-outline-primary">Add Book</button></Link>
- 
-        </div>
+                    </tbody>
+                </table>
+                    <Link to={`/add`} className='button'><button className="btn btn-outline-primary">Add Book</button></Link>
+            </div>
         </div>
     </div>
     </div>

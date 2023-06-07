@@ -2,6 +2,7 @@ import React, {useState, useEffect} from 'react';
 import axios from "axios";
 import { Link } from 'react-router-dom';
 import ReactHTMLTableToExcel from 'react-html-table-to-excel';
+import { DataGrid, GridColumn} from 'rc-easyui';
 
 
 const BorrowList = () => {
@@ -44,7 +45,25 @@ const BorrowList = () => {
             </div>
         </div>
 
-        <div className='table-responsive'>
+             <div>
+                <DataGrid data = {borrow.filter((val) => {
+                            if (search === '') {
+                                return val
+                            } else if (val.title.toLowerCase().includes(search.toLowerCase())) {
+                                return val
+                            } else if (val.name.toLowerCase().includes(search.toLowerCase())) {
+                                return val
+                            } else if (val.status.toLowerCase().includes(search.toLowerCase())) {
+                                return val
+                            }
+                                })}>                
+                    <GridColumn field="title" title="Book Title" width="30%"></GridColumn>
+                    <GridColumn field="name" title="Name"></GridColumn>
+                    <GridColumn field="status" title="Status" align="center"></GridColumn>
+                </DataGrid>
+            </div>
+
+        {/* <div className='table-responsive'>
             <table className="table table-bordered table-hover " id='table-to-xls'>
                 <thead>
                     <tr>
@@ -76,7 +95,7 @@ const BorrowList = () => {
                         }
                 </tbody>
             </table>
-        </div>
+        </div> */}
         </div>
     </div>
     </div>
